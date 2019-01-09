@@ -34,6 +34,7 @@
 @property (nonatomic) NSInteger currentIndex;
 @property (nonatomic) NSInteger lastIndex;
 @property (nonatomic,strong) NoWiFiView *noWifiView;
+@property (nonatomic,strong) LoaderObject *loaderHUD;
 @end
 
 @implementation HomeScrollViewController
@@ -73,7 +74,8 @@
 
 - (void) requestData {
     _noWifiView.hidden = YES;
-    [SVProgressHUD showWithStatus:@"拼命加载中，请稍等"];
+//    [SVProgressHUD showWithStatus:@"拼命加载中，请稍等"];
+    [self.loaderHUD showLoader];
     [[[HomeRequest alloc] init] requestData:nil andBlock:^(HomeRequest *responseData) {
         self.genreModels = [[NSArray alloc] initWithArray:responseData.genresArray];
         NSMutableArray *tempArray = [NSMutableArray arrayWithCapacity:0];
@@ -84,8 +86,10 @@
         self.titles = (NSArray *)tempArray;
         [self setupView];
 //        [SVProgressHUD dismiss];
+        [self.loaderHUD dismissLoader];
     } andFailureBlock:^(HomeRequest *responseData) {
-        [SVProgressHUD dismiss];
+//        [SVProgressHUD dismiss];
+        [self.loaderHUD dismissLoader];
         _noWifiView.hidden = NO;
     }];
 }
@@ -346,6 +350,11 @@
     return NO;
 }
 
-
+- (LoaderObject *)loaderHUD {
+    if (!_loaderHUD) {
+        _loaderHUD = [[LoaderObject alloc] initWithFatherView:self.view];
+    }
+    return _loaderHUD;
+}
 
 @end

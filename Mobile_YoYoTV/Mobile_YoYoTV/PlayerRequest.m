@@ -48,11 +48,12 @@
     if (self.genre_id.integerValue == 3) { //电影
         urlString = [NSString stringWithFormat:@"https://api.vimeo.com/videos/%@",self.vimeo_id];
     } else {
-        urlString = [NSString stringWithFormat:@"https://api.vimeo.com/me/albums/%@/videos?direction=desc&page=1&per_page=100&sort=alphabetical",self.vimeo_id];
+        urlString = [NSString stringWithFormat:@"https://api.vimeo.com/me/albums/%@/videos?direction=desc&page=1&per_page=100&sort=alphabetical&fields=name,files,download,pictures",self.vimeo_id];
     }
     NSString *token = [NSString stringWithFormat:@"Bearer %@",self.vimeo_token];
     NSMutableURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"GET" URLString:urlString parameters:nil error:nil];
     [request addValue:token forHTTPHeaderField:@"Authorization"];
+    [request addValue:@"application/vnd.vimeo.*+json;version=3.1" forHTTPHeaderField:@"Accept"];
     //[request addValue:你需要的user-agent forHTTPHeaderField:@"User-Agent"];
     //发起请求
     [[manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
@@ -65,6 +66,7 @@
             } else {
                 [self.bigArray addObjectsFromArray:dic[@"data"]];
                 _requestPage = 1;
+                self.totalEpisode = dic[@"total"];
                 [self requestNextPage:dic andCallBack:block];
             }
         } else {

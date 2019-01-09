@@ -44,6 +44,7 @@
 /************************* other *************************/
 #import "GlobeConst.h"
 #import "AppDelegate.h"
+#import "LoaderObject.h"
 
 #ifdef DEBUG
 #define HWLog(...) NSLog(__VA_ARGS__)

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "75741B6FB02543BDC4C143B04EA4F675"
+               BlueprintIdentifier = "8205E319B1265339E42AF52634BDD299"
                BlueprintName = "Pods-Mobile_YoYoTV"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "libPods-Mobile_YoYoTV.a">

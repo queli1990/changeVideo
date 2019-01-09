@@ -18,7 +18,7 @@
 //顶部滑动的标题数组
 @property (nonatomic, strong) NSMutableArray *titles;
 @property (nonatomic, strong) NSArray *datas;
-
+@property (nonatomic,strong) LoaderObject *loaderHUD;
 @property (nonatomic,strong) NoWiFiView *noWifiView;
 @end
 
@@ -41,7 +41,8 @@
 
 - (void) requestData {
     _noWifiView.hidden = YES;
-    [SVProgressHUD showWithStatus:@"拼命加载中，请稍等"];
+//    [SVProgressHUD showWithStatus:@"拼命加载中，请稍等"];
+    [self.loaderHUD showLoader];
     ShortVideoRequest *request = [ShortVideoRequest new];
     [request requestData:nil SuccessBlock:^(ShortVideoRequest *responseData) {
         self.datas = responseData.responseData;
@@ -55,7 +56,8 @@
         }
         [self loadData];
     } failureBlcok:^(ShortVideoRequest *responseData) {
-        [SVProgressHUD dismiss];
+//        [SVProgressHUD dismiss];
+        [self.loaderHUD dismissLoader];
         _noWifiView.hidden = NO;
     }];
 }
@@ -157,6 +159,13 @@
         _titles = [NSMutableArray arrayWithCapacity:0];
     }
     return _titles;
+}
+
+- (LoaderObject *)loaderHUD {
+    if (!_loaderHUD) {
+        _loaderHUD = [[LoaderObject alloc] initWithFatherView:self.view];
+    }
+    return _loaderHUD;
 }
 
 @end

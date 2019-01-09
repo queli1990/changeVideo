@@ -29,6 +29,7 @@
 @property (nonatomic,strong) NSMutableArray *titlesForList;
 @property (nonatomic,strong) UICollectionView *collectionView;
 @property (nonatomic,strong) NoWiFiView *noWifiView;
+@property (nonatomic,strong) LoaderObject *loaderHUD;
 @end
 
 @implementation HomeViewController
@@ -49,7 +50,9 @@
 
 - (void) requestDataWithDictionary:(NSDictionary *)dic {
     _noWifiView.hidden = YES;
-    [SVProgressHUD showWithStatus:@"拼命加载中，请稍等"];
+    self.loaderHUD.activityIndicatorView.frame = CGRectMake((ScreenWidth-50)*0.5, (ScreenHeight-64-90-70-50)*0.5, 50, 50);
+    [self.loaderHUD showLoader];
+//    [SVProgressHUD showWithStatus:@"拼命加载中，请稍等"];
     HomeRequest *requet = [[HomeRequest alloc] init];
     requet.currentIndex = self.currentIndex;
     [requet requestData:dic andBlock:^(HomeRequest *responseData) {
@@ -66,12 +69,14 @@
             if (_currentIndex) {
                 NoResultView *noResultView = [[NoResultView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight-49)];
                 [self.view addSubview:noResultView];
-                [SVProgressHUD dismiss];
+//                [SVProgressHUD dismiss];
+                [self.loaderHUD dismissLoader];
             }
         }
         
     } andFailureBlock:^(HomeRequest *responseData) {
-        [SVProgressHUD dismiss];
+//        [SVProgressHUD dismiss];
+        [self.loaderHUD dismissLoader];
         _noWifiView.hidden = NO;
     }];
 }
@@ -96,7 +101,8 @@
     _collectionView.dataSource = self;
     _collectionView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_collectionView];
-    [SVProgressHUD dismiss];
+//    [SVProgressHUD dismiss];
+    [self.loaderHUD dismissLoader];
 }
 
 #pragma mark - collectionView代理方法
@@ -266,6 +272,13 @@
 
 - (void) reloadCurrentPageData:(UIButton *)btn {
     [self requestDataWithDictionary:nil];
+}
+
+- (LoaderObject *)loaderHUD {
+    if (!_loaderHUD) {
+        _loaderHUD = [[LoaderObject alloc] initWithFatherView:self.view];
+    }
+    return _loaderHUD;
 }
 
 @end

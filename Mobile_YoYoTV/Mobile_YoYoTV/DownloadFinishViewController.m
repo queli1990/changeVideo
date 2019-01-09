@@ -53,7 +53,7 @@
 
 - (void) prepareData {
     NSMutableArray *tempUnfinishDatas = [NSMutableArray arrayWithCapacity:0];
-    NSMutableArray *finishFolders = [NSMutableArray arrayWithCapacity:0];
+    NSMutableArray *tempFinishFolders = [NSMutableArray arrayWithCapacity:0];
 
     NSArray *cacheData = [[HWDataBaseManager shareManager] getAllCacheData];
     NSMutableArray *folders = [[NSUserDefaults standardUserDefaults] objectForKey:@"folders"];
@@ -70,7 +70,7 @@
                     count ++;
                     if (!exist) {
                         NSMutableDictionary *tempDic = [NSMutableDictionary dictionaryWithDictionary:folders[j]];
-                        [finishFolders addObject:tempDic];
+                        [tempFinishFolders addObject:tempDic];
                         exist = YES;
                     }
                 }
@@ -78,11 +78,11 @@
                 [tempUnfinishDatas addObject:model];
             }
         }
-        if ([finishFolders lastObject] && count > 0) {
-            [[finishFolders lastObject] setObject:[NSString stringWithFormat:@"%ld",(long)count] forKey:@"finishCount"];
+        if ([tempFinishFolders lastObject] && count > 0) {
+            [[tempFinishFolders lastObject] setObject:[NSString stringWithFormat:@"%ld",(long)count] forKey:@"finishCount"];
         }
     }
-    self.finishDatas = finishFolders;
+    self.finishDatas = tempFinishFolders;
     self.unfinishDatas = tempUnfinishDatas;
 }
 

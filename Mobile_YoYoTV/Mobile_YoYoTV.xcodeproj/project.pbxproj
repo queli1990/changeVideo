@@ -181,6 +181,7 @@
 		003C0CC21ED41411004C2C6A /* HotSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 003C0CC11ED41411004C2C6A /* HotSearchTableViewCell.m */; };
 		003C0CC51ED56EA5004C2C6A /* GenresModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 003C0CC41ED56EA5004C2C6A /* GenresModel.m */; };
 		003E620F21DF3E8000896A0D /* MyNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 003E620E21DF3E8000896A0D /* MyNavigationViewController.m */; };
+		003E621221E43A9C00896A0D /* LoaderObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 003E621121E43A9C00896A0D /* LoaderObject.m */; };
 		003F3912215B23E500C929DC /* unfold.png in Resources */ = {isa = PBXBuildFile; fileRef = 003F3910215B23E500C929DC /* unfold.png */; };
 		003F3913215B23E500C929DC /* putAway.png in Resources */ = {isa = PBXBuildFile; fileRef = 003F3911215B23E500C929DC /* putAway.png */; };
 		003F3916215B5ED300C929DC /* NSString+QT.m in Sources */ = {isa = PBXBuildFile; fileRef = 003F3914215B5ED200C929DC /* NSString+QT.m */; };
@@ -251,6 +252,16 @@
 		00C24A081EF7C9340049E20A /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C24A051EF7C9340049E20A /* IAPHelper.swift */; };
 		00C24A0C1EF8F5170049E20A /* purchase_header.png in Resources */ = {isa = PBXBuildFile; fileRef = 00C24A0B1EF8F5170049E20A /* purchase_header.png */; };
 		00C24A0E1EF90F080049E20A /* VIP.png in Resources */ = {isa = PBXBuildFile; fileRef = 00C24A0D1EF90F080049E20A /* VIP.png */; };
+		00C39AF721E5CECA0020542B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C39AF621E5CECA0020542B /* libz.tbd */; };
+		00C39AF921E5CED30020542B /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C39AF821E5CED30020542B /* libc++.tbd */; };
+		00C39AFB21E5CEDD0020542B /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C39AFA21E5CEDD0020542B /* libbz2.tbd */; };
+		00C39AFD21E5CEE90020542B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C39AFC21E5CEE90020542B /* AudioToolbox.framework */; };
+		00C39AFF21E5CEF20020542B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C39AFE21E5CEF20020542B /* CoreGraphics.framework */; };
+		00C39B0121E5CEFF0020542B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C39B0021E5CEFF0020542B /* AVFoundation.framework */; };
+		00C39B0321E5CF070020542B /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C39B0221E5CF070020542B /* CoreMedia.framework */; };
+		00C39B0521E5CF100020542B /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C39B0421E5CF100020542B /* CoreVideo.framework */; };
+		00C39B0721E5CF190020542B /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C39B0621E5CF190020542B /* MediaPlayer.framework */; };
+		00C39B0921E5CF230020542B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C39B0821E5CF230020542B /* MobileCoreServices.framework */; };
 		00C8110B1FE2488000D93C3B /* HomeHorizontalCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C8110A1FE2488000D93C3B /* HomeHorizontalCollectionViewCell.m */; };
 		00D707471FD0011F00BB9D99 /* MainCollectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D707461FD0011F00BB9D99 /* MainCollectionTableViewCell.m */; };
 		00D7074A1FD0FE2800BB9D99 /* ExitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D707491FD0FE2800BB9D99 /* ExitView.m */; };
@@ -614,6 +625,8 @@
 		003C0CC41ED56EA5004C2C6A /* GenresModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenresModel.m; sourceTree = "<group>"; };
 		003E620D21DF3E8000896A0D /* MyNavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyNavigationViewController.h; sourceTree = "<group>"; };
 		003E620E21DF3E8000896A0D /* MyNavigationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyNavigationViewController.m; sourceTree = "<group>"; };
+		003E621021E43A9C00896A0D /* LoaderObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoaderObject.h; sourceTree = "<group>"; };
+		003E621121E43A9C00896A0D /* LoaderObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoaderObject.m; sourceTree = "<group>"; };
 		003F3910215B23E500C929DC /* unfold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unfold.png; sourceTree = "<group>"; };
 		003F3911215B23E500C929DC /* putAway.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = putAway.png; sourceTree = "<group>"; };
 		003F3914215B5ED200C929DC /* NSString+QT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+QT.m"; sourceTree = "<group>"; };
@@ -720,6 +733,16 @@
 		00C24A051EF7C9340049E20A /* IAPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
 		00C24A0B1EF8F5170049E20A /* purchase_header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purchase_header.png; sourceTree = "<group>"; };
 		00C24A0D1EF90F080049E20A /* VIP.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VIP.png; sourceTree = "<group>"; };
+		00C39AF621E5CECA0020542B /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		00C39AF821E5CED30020542B /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		00C39AFA21E5CEDD0020542B /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
+		00C39AFC21E5CEE90020542B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		00C39AFE21E5CEF20020542B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		00C39B0021E5CEFF0020542B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		00C39B0221E5CF070020542B /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		00C39B0421E5CF100020542B /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		00C39B0621E5CF190020542B /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		00C39B0821E5CF230020542B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		00C811091FE2488000D93C3B /* HomeHorizontalCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeHorizontalCollectionViewCell.h; sourceTree = "<group>"; };
 		00C8110A1FE2488000D93C3B /* HomeHorizontalCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeHorizontalCollectionViewCell.m; sourceTree = "<group>"; };
 		00D707451FD0011F00BB9D99 /* MainCollectionTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainCollectionTableViewCell.h; sourceTree = "<group>"; };
@@ -806,6 +829,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00C39B0921E5CF230020542B /* MobileCoreServices.framework in Frameworks */,
+				00C39B0721E5CF190020542B /* MediaPlayer.framework in Frameworks */,
+				00C39B0521E5CF100020542B /* CoreVideo.framework in Frameworks */,
+				00C39B0321E5CF070020542B /* CoreMedia.framework in Frameworks */,
+				00C39B0121E5CEFF0020542B /* AVFoundation.framework in Frameworks */,
+				00C39AFF21E5CEF20020542B /* CoreGraphics.framework in Frameworks */,
+				00C39AFD21E5CEE90020542B /* AudioToolbox.framework in Frameworks */,
+				00C39AFB21E5CEDD0020542B /* libbz2.tbd in Frameworks */,
+				00C39AF921E5CED30020542B /* libc++.tbd in Frameworks */,
+				00C39AF721E5CECA0020542B /* libz.tbd in Frameworks */,
 				3CB5912113EE12D00ECA23E5 /* libPods-Mobile_YoYoTV.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1549,6 +1582,8 @@
 				002FF21C2188231C0075F1C3 /* QLAlertView.m */,
 				002FF222218845CA0075F1C3 /* AutoDismissAlert.h */,
 				002FF223218845CA0075F1C3 /* AutoDismissAlert.m */,
+				003E621021E43A9C00896A0D /* LoaderObject.h */,
+				003E621121E43A9C00896A0D /* LoaderObject.m */,
 			);
 			name = Toast;
 			sourceTree = "<group>";
@@ -1778,6 +1813,16 @@
 		F2B2A90AC7144B672B9AE262 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				00C39B0821E5CF230020542B /* MobileCoreServices.framework */,
+				00C39B0621E5CF190020542B /* MediaPlayer.framework */,
+				00C39B0421E5CF100020542B /* CoreVideo.framework */,
+				00C39B0221E5CF070020542B /* CoreMedia.framework */,
+				00C39B0021E5CEFF0020542B /* AVFoundation.framework */,
+				00C39AFE21E5CEF20020542B /* CoreGraphics.framework */,
+				00C39AFC21E5CEE90020542B /* AudioToolbox.framework */,
+				00C39AFA21E5CEDD0020542B /* libbz2.tbd */,
+				00C39AF821E5CED30020542B /* libc++.tbd */,
+				00C39AF621E5CECA0020542B /* libz.tbd */,
 				3B7C80054FCFCEBBDD4CF0EC /* libPods-Mobile_YoYoTV.a */,
 				182DCE261279A732BD878209 /* libPods-Mobile_YoYoTV-Mobile_YoYoTVTests.a */,
 				F64194DD8036A5F97D8F49D8 /* libPods-Mobile_YoYoTVUITests.a */,
@@ -2273,6 +2318,7 @@
 				002FF1D12180378E0075F1C3 /* HyPopMenuView.m in Sources */,
 				00291AA5216EF61D005DA637 /* ListTabViewController.m in Sources */,
 				008B9F821FBAE71E002DEA56 /* CAGradientLayer+OrangeLayer.m in Sources */,
+				003E621221E43A9C00896A0D /* LoaderObject.m in Sources */,
 				0029AB6E21B66B3F00697D6A /* FinishFolderModel.m in Sources */,
 				00D707901FD795B800BB9D99 /* PlayHistoryTableViewCell.m in Sources */,
 				002D6B2821A6ADBB00BADF5C /* GlobeConst.m in Sources */,
@@ -2464,6 +2510,98 @@
 				INFOPLIST_FILE = Mobile_YoYoTV/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"BHInfiniteScrollView\"",
+					"-l\"BlocksKit\"",
+					"-l\"Bolts\"",
+					"-l\"CRToast\"",
+					"-l\"DGActivityIndicatorView\"",
+					"-l\"FBSDKCoreKit\"",
+					"-l\"FBSDKLoginKit\"",
+					"-l\"FBSDKShareKit\"",
+					"-l\"LGSideMenuController\"",
+					"-l\"MJRefresh\"",
+					"-l\"Masonry\"",
+					"-l\"RDVTabBarController\"",
+					"-l\"SDWebImage\"",
+					"-l\"SVProgressHUD\"",
+					"-l\"TLYShyNavBar\"",
+					"-l\"TYPagerController\"",
+					"-l\"c++\"",
+					"-l\"pop\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"CoreMotion\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreVideo\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"GLKit\"",
+					"-framework",
+					"\"GoogleMobileAds\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MediaPlayer\"",
+					"-framework",
+					"\"MessageUI\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"OpenGLES\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-weak_framework",
+					"\"Accounts\"",
+					"-weak_framework",
+					"\"AdSupport\"",
+					"-weak_framework",
+					"\"AudioToolbox\"",
+					"-weak_framework",
+					"\"CoreGraphics\"",
+					"-weak_framework",
+					"\"CoreLocation\"",
+					"-weak_framework",
+					"\"Foundation\"",
+					"-weak_framework",
+					"\"JavaScriptCore\"",
+					"-weak_framework",
+					"\"QuartzCore\"",
+					"-weak_framework",
+					"\"SafariServices\"",
+					"-weak_framework",
+					"\"Security\"",
+					"-weak_framework",
+					"\"Social\"",
+					"-weak_framework",
+					"\"UIKit\"",
+					"-weak_framework",
+					"\"WebKit\"",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.movies.mobile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -2491,6 +2629,98 @@
 				INFOPLIST_FILE = Mobile_YoYoTV/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"BHInfiniteScrollView\"",
+					"-l\"BlocksKit\"",
+					"-l\"Bolts\"",
+					"-l\"CRToast\"",
+					"-l\"DGActivityIndicatorView\"",
+					"-l\"FBSDKCoreKit\"",
+					"-l\"FBSDKLoginKit\"",
+					"-l\"FBSDKShareKit\"",
+					"-l\"LGSideMenuController\"",
+					"-l\"MJRefresh\"",
+					"-l\"Masonry\"",
+					"-l\"RDVTabBarController\"",
+					"-l\"SDWebImage\"",
+					"-l\"SVProgressHUD\"",
+					"-l\"TLYShyNavBar\"",
+					"-l\"TYPagerController\"",
+					"-l\"c++\"",
+					"-l\"pop\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"CoreMotion\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreVideo\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"GLKit\"",
+					"-framework",
+					"\"GoogleMobileAds\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MediaPlayer\"",
+					"-framework",
+					"\"MessageUI\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"OpenGLES\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-weak_framework",
+					"\"Accounts\"",
+					"-weak_framework",
+					"\"AdSupport\"",
+					"-weak_framework",
+					"\"AudioToolbox\"",
+					"-weak_framework",
+					"\"CoreGraphics\"",
+					"-weak_framework",
+					"\"CoreLocation\"",
+					"-weak_framework",
+					"\"Foundation\"",
+					"-weak_framework",
+					"\"JavaScriptCore\"",
+					"-weak_framework",
+					"\"QuartzCore\"",
+					"-weak_framework",
+					"\"SafariServices\"",
+					"-weak_framework",
+					"\"Security\"",
+					"-weak_framework",
+					"\"Social\"",
+					"-weak_framework",
+					"\"UIKit\"",
+					"-weak_framework",
+					"\"WebKit\"",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.movies.mobile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

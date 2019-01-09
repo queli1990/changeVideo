@@ -106,7 +106,7 @@
     cell.titleLabel.text = self.contentArray[indexPath.row][@"name"];
     cell.iconImageView.image = [UIImage imageNamed:self.contentArray[indexPath.row][@"img"]];
 //    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    if (indexPath.row == 2) {
+    if (indexPath.row == 3) {
         cell.subTitleLabel.text = @"Feedback";
     }
     return cell;

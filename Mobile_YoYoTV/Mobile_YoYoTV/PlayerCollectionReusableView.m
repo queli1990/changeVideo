@@ -110,7 +110,8 @@
     [self addSubview:_videoInfoView];
     
     //赋值
-    _videoInfoView.totalEpisodeLabel.text = [NSString stringWithFormat:@"共%ld集",responseData.vimeo_responseDataArray.count];
+    NSString *tempStr = [self.model.eps integerValue] <= responseData.vimeo_responseDataArray.count ? @"共" : @"更新至";
+    _videoInfoView.totalEpisodeLabel.text = [NSString stringWithFormat:@"%@%ld集",tempStr,responseData.vimeo_responseDataArray.count];
     _videoInfoView.directorLabel.text = [NSString stringWithFormat:@"导演：%@",self.model.director];
     if (self.model.cast4.length > 0) {
         _videoInfoView.actorLabel.text = [NSString stringWithFormat:@"演员：%@,%@,%@,%@",self.model.cast1,self.model.cast2,self.model.cast3,self.model.cast4];

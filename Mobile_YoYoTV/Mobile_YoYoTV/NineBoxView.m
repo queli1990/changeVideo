@@ -66,7 +66,7 @@
         downloadModel.fileName = [array[i] objectForKey:@"name"];
         downloadModel.vid = [NSString stringWithFormat:@"%@-%ld",ID,i+1];
         if (![[array[i] objectForKey:@"pictures"] isEqual:[NSNull null]]) {
-            NSArray *pictures = [[array[i] objectForKey:@"pictures"] objectForKey:@"sizes"];
+            NSArray *pictures = [array[i] objectForKey:@"pictures"];
             downloadModel.imageURL = [pictures[2] objectForKey:@"link"];
         }
         // 赋值状态

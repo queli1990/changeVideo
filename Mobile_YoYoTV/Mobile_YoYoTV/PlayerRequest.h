@@ -21,7 +21,7 @@ typedef void (^vimeoResponseBlock)(PlayerRequest *responseData);
 @property (nonatomic,strong) NSNumber *genre_id;
 @property (nonatomic,copy) NSString *vimeo_id;
 @property (nonatomic,copy) NSString *vimeo_token;
-
+@property (nonatomic, strong) NSNumber *totalEpisode;
 @property (nonatomic,strong) NSError *responseError;
 @property (nonatomic,strong) NSArray *responseData;
 @property (nonatomic,strong) NSArray *playUrlArray;

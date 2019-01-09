@@ -73,6 +73,7 @@ static NSString *kVideoCover = @"https://upload-images.jianshu.io/upload_images/
 @property (nonatomic,strong) PlayerCollectionReusableView *headView;
 //广告的view
 @property (nonatomic, strong) GADBannerView *bannerView;
+@property (nonatomic) BOOL isPop;
 @end
 
 @implementation PlayerViewController
@@ -103,18 +104,24 @@ static NSString *kVideoCover = @"https://upload-images.jianshu.io/upload_images/
     //设置状态栏颜色
     UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
     if ([statusBar respondsToSelector:@selector(setBackgroundColor:)]) {
-        statusBar.backgroundColor = UIColorFromRGB(0x2F2D30, 1.0);
+//        statusBar.backgroundColor = UIColorFromRGB(0x2F2D30, 1.0);
     }
     _leavePageTime = [self getTimeStamp];
     int tempValue = [self.model.ID intValue];
     [UserActionRequest postDetailPageEventCode:@"1000106001" successCode:@1 beginTime:_enterPageTime endTime:_leavePageTime episode:[NSNumber numberWithInteger:_currentIndex] albumId:[NSNumber numberWithInt:tempValue] albumName:self.model.name];
     [self postPlayRecord];
-    self.player = nil;
+    if (self.isPop) {
+        self.player = nil;
+    } else {
+        [self.player.currentPlayerManager pause];
+        _isPop = YES;
+    }
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     _isFirstBuffer = YES;
+    _isPop = YES;
     [self.navigationController.navigationBar setBarStyle:UIBarStyleDefault];
 
     self.view.backgroundColor = [UIColor whiteColor];
@@ -351,6 +358,11 @@ static NSString *kVideoCover = @"https://upload-images.jianshu.io/upload_images/
 
 - (void) showNativeAds {
     NSLog(@"开始设置广告");
+    NSDictionary *configDic = [[NSUserDefaults standardUserDefaults] objectForKey:@"config"];
+    BOOL hasAd = [configDic[@"has_ad"] boolValue];
+    if (!hasAd) {
+        return;
+    }
     self.adLoader = [[GADAdLoader alloc] initWithAdUnitID:LiveAdUnit
                                        rootViewController:self
                                                   adTypes:@[ kGADAdLoaderAdTypeUnifiedNative ]
@@ -361,10 +373,6 @@ static NSString *kVideoCover = @"https://upload-images.jianshu.io/upload_images/
 
 - (void) setupTimer:(UILabel *)timerLabel1 {
     NSDictionary *configDic = [[NSUserDefaults standardUserDefaults] objectForKey:@"config"];
-    BOOL hasAd = [configDic[@"has_ad"] boolValue];
-    if (!hasAd) {
-        return;
-    }
     if (_GCDTimer) {
         dispatch_source_cancel(_GCDTimer);
     }
@@ -862,6 +870,7 @@ static NSString *kVideoCover = @"https://upload-images.jianshu.io/upload_images/
     [self presentViewController:vc animated:YES completion:^{
         [_player.currentPlayerManager pause];
     }];
+    _isPop = NO;
 }
 
 // 收藏按钮

@@ -8,13 +8,14 @@
 
 #import "SearchResultTableView.h"
 #import "SearchResultRequest.h"
-
+#import "DGActivityIndicatorView.h"
 
 @interface SearchResultTableView() <UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) NSArray *contentArray;
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) NoResultView *noResultView;
 @property (nonatomic) CGFloat height;
+@property (nonatomic,strong) DGActivityIndicatorView *activityIndicatorView;
 @end
 
 @implementation SearchResultTableView
@@ -28,12 +29,20 @@
         [self addSubview:self.noResultView];
         _noResultView.hidden = YES;
         _height = frame.size.height;
+        
+        CGFloat width = 50.0;
+        CGFloat height = 50.0;
+        self.activityIndicatorView = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeBallClipRotatePulse tintColor:[UIColor grayColor] size:50.0f];
+        self.activityIndicatorView.frame = CGRectMake((frame.size.width-width)*0.5, (frame.size.height-height)*0.5, width, height);
+        [self addSubview:self.activityIndicatorView];
+        [self bringSubviewToFront:self.activityIndicatorView];
     }
     return self;
 }
 
 - (void) requestDataWhenLoaded:(FinishLoad) callback {
-    [SVProgressHUD showWithStatus:@"拼命加载中，请稍等"];
+//    [SVProgressHUD showWithStatus:@"拼命加载中，请稍等"];
+    [self.activityIndicatorView startAnimating];
     SearchResultRequest *request = [[SearchResultRequest alloc] init];
     request.keyword = [self.keyword stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"`#%^{}\"[]|\\<> "].invertedSet];
     [request requestData:nil andBlock:^(SearchResultRequest *responseData) {
@@ -51,10 +60,12 @@
             _noResultView.hidden = NO;
             _tableView.hidden = YES;
         }
-        [SVProgressHUD dismiss];
+//        [SVProgressHUD dismiss];
+        [self.activityIndicatorView stopAnimating];
         callback();
     } andFailureBlock:^(SearchResultRequest *responseData) {
         NSLog(@"fail---%@",NSStringFromClass([self class]));
+        [self.activityIndicatorView stopAnimating];
     }];
 }
 

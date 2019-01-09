@@ -24,6 +24,7 @@ const CGFloat NavHeight = 64;
 @property (nonatomic,strong) NSArray *datas;
 @property (nonatomic,strong) SearchResultTableView *resultView;
 @property (nonatomic) CGFloat height;
+@property (nonatomic,strong) LoaderObject *loaderHUD;
 @end
 
 @implementation SearchViewController
@@ -38,15 +39,18 @@ const CGFloat NavHeight = 64;
 }
 
 - (void) requestDataForHotSearch {
-    [SVProgressHUD showWithStatus:@"拼命加载中，请稍等"];
+    [self.loaderHUD showLoader];
+//    [SVProgressHUD showWithStatus:@"拼命加载中，请稍等"];
     [[HotSearchRequest alloc] requestData:nil andBlock:^(HotSearchRequest *responseData) {
 //        SuccessLog(NSStringFromClass([self class]));
         self.datas = responseData.responseData;
         self.tableView ? [self reloadTableView] : [self initTableView];
-        [SVProgressHUD dismiss];
+        [self.loaderHUD dismissLoader];
+//        [SVProgressHUD dismiss];
     } andFailureBlock:^(HotSearchRequest *responseData) {
 //        FailLog(NSStringFromClass([self class]));
-        [SVProgressHUD showWithStatus:@"请检查网络"];
+        [self.loaderHUD dismissLoader];
+//        [SVProgressHUD showWithStatus:@"请检查网络"];
     }];
 }
 
@@ -99,8 +103,9 @@ const CGFloat NavHeight = 64;
     [self deweightString:keyword];
     _tableView.hidden = YES;
     _resultView.keyword = keyword;
+    [self.view addSubview:_resultView];
     [_resultView requestDataWhenLoaded:^{
-        [self.view addSubview:_resultView];
+        
     }];
     __weak __typeof(self) weakSelf = self;
     _resultView.passHomeModel = ^(SearchResultModel *model) {
@@ -287,6 +292,13 @@ const CGFloat NavHeight = 64;
     } else {
         [[PushHelper new] popController:self WithNavigationController:self.navigationController andSetTabBarHidden:NO];
     }
+}
+
+- (LoaderObject *)loaderHUD {
+    if (!_loaderHUD) {
+        _loaderHUD = [[LoaderObject alloc] initWithFatherView:self.view];
+    }
+    return _loaderHUD;
 }
 
 @end

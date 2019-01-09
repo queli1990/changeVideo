@@ -31,6 +31,7 @@
 @property (nonatomic,assign) NSNumber *totalCount;
 @property (nonatomic, strong) HyPopMenuView* menu;
 @property (nonatomic, assign) NSInteger sharedVideoIndex;
+@property (nonatomic,strong) LoaderObject *loaderHUD;
 @end
 
 @implementation ShortVideoViewController
@@ -139,7 +140,9 @@
 
 - (void) requestVimeoData {
     _noWifiView.hidden = YES;
-    [SVProgressHUD showWithStatus:@"拼命加载中，请稍等"];
+    self.loaderHUD.activityIndicatorView.frame = CGRectMake((ScreenWidth-50)*0.5, (ScreenHeight-64-49-50)*0.5, 50, 50);
+    [self.loaderHUD showLoader];
+//    [SVProgressHUD showWithStatus:@"拼命加载中，请稍等"];
     NSDictionary *params = @{@"vimeoID":self.vimeoID,@"vimeoToken":self.vimeoToken,@"page":[NSString stringWithFormat:@"%d",_currentPage],@"perCount":@"10"};
     [[[ShortVideoRequest alloc] init] requestVimeo:params SuccessBlock:^(ShortVideoRequest *responseData) {
         _totalCount = responseData.totalCount;
@@ -161,9 +164,11 @@
         } else {
             self.tableView.mj_footer.hidden = NO;
         }
-        [SVProgressHUD dismiss];
+//        [SVProgressHUD dismiss];
+        [self.loaderHUD dismissLoader];
     } failureBlock:^(ShortVideoRequest *responseData) {
-        [SVProgressHUD showWithStatus:@"请检查网络"];
+//        [SVProgressHUD showWithStatus:@"请检查网络"];
+        [self.loaderHUD dismissLoader];
         _noWifiView.hidden = NO;
     }];
 }
@@ -311,6 +316,13 @@
         [_noWifiView.reloadBtn addTarget:self action:@selector(requestVimeoData) forControlEvents:UIControlEventTouchUpInside];
     }
     return _noWifiView;
+}
+
+- (LoaderObject *)loaderHUD {
+    if (!_loaderHUD) {
+        _loaderHUD = [[LoaderObject alloc] initWithFatherView:self.view];
+    }
+    return _loaderHUD;
 }
 
 

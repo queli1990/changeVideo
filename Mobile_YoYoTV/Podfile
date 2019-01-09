@@ -17,6 +17,8 @@ target 'Mobile_YoYoTV' do
   pod 'TLYShyNavBar' 
   pod 'pop', '~> 1.0.10'
   pod 'BlocksKit', '~> 2.2.5' 
+  pod 'DGActivityIndicatorView'
+
 
   pod 'FBSDKShareKit'
   pod 'FBSDKLoginKit'

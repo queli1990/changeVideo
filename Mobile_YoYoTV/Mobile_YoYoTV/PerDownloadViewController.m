@@ -299,7 +299,7 @@
                 HWDownloadModel *model = [[HWDownloadModel alloc] init];
                 model.fileName = [_vimeoDataArray[i] objectForKey:@"name"];
                 model.vid = [NSString stringWithFormat:@"%@-%d",_ID,i+1];
-                NSArray *pictures = [[_vimeoDataArray[i] objectForKey:@"pictures"] objectForKey:@"sizes"];
+                NSArray *pictures = [_vimeoDataArray[i] objectForKey:@"pictures"];
                 model.imageURL = [pictures[2] objectForKey:@"link"];
                 for (HWDownloadModel *downloadModel in cacheData) {
                     if ([model.vid isEqualToString:downloadModel.vid]) {

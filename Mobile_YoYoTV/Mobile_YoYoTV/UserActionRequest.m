@@ -9,7 +9,8 @@
 #import "UserActionRequest.h"
 #import "PlayerCollectionReusableView.h"
 
-static NSString *baseUrl = @"http://192.168.188.189:8088";
+//static NSString *baseUrl = @"http://192.168.188.189:8088";
+static NSString *baseUrl = @"http://analytics.chinesetvall.com";
 
 @implementation UserActionRequest
 

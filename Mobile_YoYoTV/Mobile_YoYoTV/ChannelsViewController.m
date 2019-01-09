@@ -14,6 +14,7 @@
 @interface ChannelsViewController () <UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic,strong) NSArray *genreModels;
 @property (nonatomic,strong) UICollectionView *collectionView;
+@property (nonatomic,strong) LoaderObject *loaderHUD;
 @end
 
 @implementation ChannelsViewController
@@ -69,7 +70,8 @@
 }
 
 - (void) requestData {
-    [SVProgressHUD showWithStatus:@"拼命加载中，请稍等"];
+//    [SVProgressHUD showWithStatus:@"拼命加载中，请稍等"];
+    [self.loaderHUD showLoader];
     [[[HomeRequest alloc] init] requestData:nil andBlock:^(HomeRequest *responseData) {
         self.genreModels = [[NSArray alloc] initWithArray:responseData.genresArray];
         NSMutableArray *tempArray = [NSMutableArray arrayWithCapacity:0];
@@ -78,9 +80,11 @@
             [tempArray addObject:model.name];
         }
         [self.collectionView reloadData];
-        [SVProgressHUD dismiss];
+        [self.loaderHUD dismissLoader];
+//        [SVProgressHUD dismiss];
     } andFailureBlock:^(HomeRequest *responseData) {
-        [SVProgressHUD showWithStatus:@"请检查网络"];
+        [self.loaderHUD dismissLoader];
+//        [SVProgressHUD showWithStatus:@"请检查网络"];
     }];
 }
 
@@ -91,6 +95,11 @@
     [self.view addSubview:nav];
 }
 
-
+- (LoaderObject *)loaderHUD {
+    if (!_loaderHUD) {
+        _loaderHUD = [[LoaderObject alloc] initWithFatherView:self.view];
+    }
+    return _loaderHUD;
+}
 
 @end

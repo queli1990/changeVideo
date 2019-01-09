@@ -20,6 +20,7 @@
 @property (nonatomic) int requestPage;
 @property (nonatomic) BOOL isFromPulling;
 @property (nonatomic, assign) BOOL haveSetFreshHeader;
+@property (nonatomic,strong) LoaderObject *loaderHUD;
 @end
 
 @implementation ListViewController
@@ -30,7 +31,8 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController setNavigationBarHidden:YES];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    [SVProgressHUD showWithStatus:@"拼命加载中，请稍等"];
+//    [SVProgressHUD showWithStatus:@"拼命加载中，请稍等"];
+    [self.loaderHUD showLoader];
     //添加左滑退出
     // 现在失效了。。。。
 //    [self popToLastPageWithNav:self.navigationController];
@@ -72,10 +74,12 @@
             NoResultView *noResultView = [[NoResultView alloc] initWithFrame:CGRectMake(0, _navHeight, ScreenWidth, ScreenHeight)];
             [self.view addSubview:noResultView];
         }
-        [SVProgressHUD dismiss];
+//        [SVProgressHUD dismiss];
+        [self.loaderHUD dismissLoader];
     } andFailureBlock:^(ListRequest *responseData) {
         //NSLog(@"%@fail",NSStringFromClass([self class]));
-        [SVProgressHUD showWithStatus:@"请检查网络"];
+//        [SVProgressHUD showWithStatus:@"请检查网络"];
+        [self.loaderHUD dismissLoader];
         [self.collectionView.mj_footer endRefreshing];
         [self.collectionView.mj_header endRefreshing];
     }];
@@ -166,7 +170,12 @@
     return _contentArray;
 }
 
-
+- (LoaderObject *)loaderHUD {
+    if (!_loaderHUD) {
+        _loaderHUD = [[LoaderObject alloc] initWithFatherView:self.view];
+    }
+    return _loaderHUD;
+}
 
 
 

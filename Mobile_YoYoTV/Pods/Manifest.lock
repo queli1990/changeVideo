@@ -38,6 +38,7 @@ PODS:
     - Bolts/Tasks
   - Bolts/Tasks (1.9.0)
   - CRToast (0.0.9)
+  - DGActivityIndicatorView (2.1.1)
   - FBSDKCoreKit (4.35.0):
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.35.0):
@@ -62,6 +63,7 @@ DEPENDENCIES:
   - BHInfiniteScrollView
   - BlocksKit (~> 2.2.5)
   - CRToast (~> 0.0.7)
+  - DGActivityIndicatorView
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
@@ -83,6 +85,7 @@ SPEC REPOS:
     - BlocksKit
     - Bolts
     - CRToast
+    - DGActivityIndicatorView
     - FBSDKCoreKit
     - FBSDKLoginKit
     - FBSDKShareKit
@@ -103,6 +106,7 @@ SPEC CHECKSUMS:
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   CRToast: 5a78c22b921c5ed3487488af605bc403a9c92fed
+  DGActivityIndicatorView: ff2c76073d79692f724863c8dd38685866a03cb6
   FBSDKCoreKit: 1a5b2e3ceb5ca827a53c54aa5f4a3480efff80d2
   FBSDKLoginKit: 00a3d65d1226852f9d76dcddff01981e5e6d9c38
   FBSDKShareKit: 2ddbd7e6432023fff957af62e23a3671b84319f7
@@ -117,6 +121,6 @@ SPEC CHECKSUMS:
   TLYShyNavBar: d200e598923fbc2bd21a5c5efdfabf4898b11da0
   TYPagerController: 043c9063b53cc6d3f6eb937c9dcbf431ae7cad85
 
-PODFILE CHECKSUM: 81eaf9ce1acc5e8ded904c421eecbe5c4e72e71a
+PODFILE CHECKSUM: 350fb655fcf997de01da0cc8babbcb79739044cc
 
 COCOAPODS: 1.5.3
